@@ -1,4 +1,4 @@
-import replaceChart from "./replaceChart.js";
+import replaceChart from "../replaceChart.js";
 import fs from "fs";
 import chardet from "chardet";
 function replaceMultiple(str, replaceChart) {
