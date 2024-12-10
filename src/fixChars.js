@@ -23,12 +23,16 @@ function fixChars(filePath) {
       }
       return;
     });
-    fs.writeFile(filePath + ".backup", data, (err) => {
+    fs.access(filePath + ".backup", fs.constants.R_OKm, (err) => {
       if (err) {
-        console.error(`Error writing file ${err}`);
-        return;
+        fs.writeFile(filePath + ".backup", data, (err) => {
+          if (err) {
+            console.error(`Error writing file ${err}`);
+            return;
+          }
+          return;
+        });
       }
-      return;
     });
   });
 }
